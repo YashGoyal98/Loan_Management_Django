@@ -1,6 +1,6 @@
 from lms_bm_app.Serializers.serializers import TransactionDetailsSerializer
 from lms_bm_app.models import TransactionDetails, LoanDetails
-
+from rest_framework import status
 
 class GetStatement:
 
@@ -34,6 +34,6 @@ class GetStatement:
                 "amount_paid": loan_details.amount_paid,
                 "upcoming_transactions": loan_details.due_dates,
                 "loan_transactions": loan_payments
-            }
+            },status.HTTP_200_OK
         except Exception as e:
             raise e
