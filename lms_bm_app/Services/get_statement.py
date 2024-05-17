@@ -27,7 +27,7 @@ class GetStatement:
             for transaction in transactions:
                 loan_payments_serialised = TransactionDetailsSerializer(transaction).data
                 loan_payments.append(loan_payments_serialised)
-            result_data = {
+            return {
                 "date": loan_details.loan_created_at,
                 "principal": loan_details.principal,
                 "interest": loan_details.interest_rate,
