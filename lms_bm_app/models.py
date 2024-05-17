@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 class TransactionDetails(models.Model):
@@ -31,6 +33,6 @@ class LoanDetails(models.Model):
     due_dates = models.JSONField(max_length=100)
     is_cleared = models.BooleanField(default=False)
     principal = models.FloatField(null=False)
-    total_interest = models.FloatField(null=False)
+    total_interest = models.FloatField(null=False,default=0)
     amount_paid = models.FloatField(null=True)
-    last_payment_date = models.DateTimeField(null=True)
+    last_payment_date = models.DateTimeField(default=datetime.now(),null=True)
