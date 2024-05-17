@@ -6,6 +6,17 @@ class RegisterUser:
         pass
 
     def register_user(self,data):
+        """
+        Registers a user
+
+        Args:
+          data: Contains :
+            ● Aadhar ID: Unique User Identifier already generated and the same is given in csv.
+            ● name
+            ● email_id
+            ● annual_income
+        Returns:
+          user Id if successful        """
         try:
             aadhar_id = data.get("aadhar_id")
             name = data.get("name")

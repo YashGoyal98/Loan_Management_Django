@@ -17,6 +17,19 @@ class ApplyLoan:
         }
 
     def apply_loan(self,data):
+        """
+        Applies for a loan
+
+        Args:
+          data: Contains :
+            ● unique_user_id: Unique User Identifier (UUID)
+            ● loan_type: Loan type as supported above
+            ● loan_amount: Amount of Loan in rupees
+            ● interest_rate: Rate of interest in percentage
+            ● term_period: time period of repayment in months
+            ● disbursement_date: Date of disbursal
+        Returns:
+          loan Id and the loan plan if successful        """
         try:
             user = UserDetails.objects.filter(user_id=data.get("user_id"))
             amount = data.get("loan_amount")
@@ -49,10 +62,7 @@ class ApplyLoan:
                 due_dates = due_dates,
                 total_interest=total_interest
             )
-            return {
-                "loan_id": loan_id,
-                "due_dates": due_dates
-            },status.HTTP_200_OK
+            return { "loan_id": loan_id,"due_dates": due_dates},status.HTTP_200_OK
 
         except Exception as e:
             raise e

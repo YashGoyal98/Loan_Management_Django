@@ -41,8 +41,7 @@ class Helper:
                 emi += tenure * emi - total_amount
             emi_plan.append({"date": datetime(payment_year, payment_month, 1),
                              "amount_due": emi})
-
-        return emi_plan
+        return { "due_dates": emi_plan,"disbursal_date": str(disbursal_date), "interest_amount": total_interest, "total_amount": total_amount,}
 
 
 def validate(principal, rate, tenure, monthly_income, emi, total_interest):
