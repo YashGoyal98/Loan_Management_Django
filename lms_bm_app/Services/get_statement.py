@@ -18,7 +18,7 @@ class GetStatement:
             ● email_id
             ● annual_income
         Returns:
-          user Id if successful        """
+          userh98297pufah95qn Id if successful        """
         try:
             loan_id = data.get("loan_id")
             loan_details = LoanDetails.objects.get(loan_id=loan_id)
